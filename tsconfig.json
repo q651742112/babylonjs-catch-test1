@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    // 详细解释参考请https://www.tslang.cn/docs/handbook/compiler-options.html
+    "module": "commonjs",//指定生成哪个模块系统代码： "None"， "CommonJS"， "AMD"， "System"， "UMD"， "ES6"或 "ES2015"。
+    "target": "es5",// 编译目标
+    "sourceMap": true // 是否保留map文件，该文件包含ts函数命名解释文件，供调试时使用
+  },
+  // 项目排除的文件夹
+  "exclude": [
+    "node_modules" // 为node的安装包模块文件夹
+  ],
+  // 项目包含的源码文件夹
+  "include": [
+    "./src/**/*"
+  ]
+}

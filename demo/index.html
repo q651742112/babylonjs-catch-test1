@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../demo/asset/babylon.js"></script>
+    <script src="../demo/asset/babylonjs.loaders.min.js"></script>
+    <style>
+        html, body, canvas {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden
+        }
+    </style>
+    <script src="../dist/hello_world.js"></script>
+</head>
+<body>
+<canvas id="renderCanvas"></canvas>
+<script>
+    // Load the main scene
+    let ilauncher = {
+        assetUrl: "../demo/asset/vignette/",
+        assetName: "1.gltf",
+        container: "renderCanvas"
+    }
+    let launcher = new hello_world.Launcher(ilauncher);
+    launcher.launch();
+    // Asynchronous loading model
+    launcher.onSceneLoaded.add((eventData) => {
+        // What is correct is that the one that has the manifest file will have the cache
+        // but change the following file loading order, some cases can be cached, some can not be cached
+        // no manifest file
+        BABYLON.SceneLoader.LoadAssetContainer("../demo/asset/sofa/", "scene.gltf", eventData.scene, function (container) {
+            container.addAllToScene();
+        });
+        // have manifest file
+        BABYLON.SceneLoader.LoadAssetContainer("../demo/asset/desk/", "520.gltf", eventData.scene, function (container) {
+            container.addAllToScene();
+        });
+        // no manifest file
+        BABYLON.SceneLoader.LoadAssetContainer("../demo/asset/chair/", "scene.gltf", eventData.scene, function (container) {
+            container.addAllToScene();
+        });
+
+
+
+    })
+
+</script>
+</body>
+
+</html>
