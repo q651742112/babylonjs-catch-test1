@@ -1,7 +1,7 @@
 // 本例中打包是将所有源码打包为一个js文件
 const path = require('path')
 // 设置打包好后项目的全局访问名称，类似于jQuery库的$
-const packName = "hello_world"
+const packName = "tylin"
 
 // 导出配置
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     mode: "development",
     output: {
         // 打包后输出的js文件
-        filename: "hello_world.js",
+        filename: "tylin_mini_bim_show.js",
         // 输出目录
         path: path.resolve(__dirname + "/dist"),
         // 目标库，只有umd模式可以打包为一个js文件
