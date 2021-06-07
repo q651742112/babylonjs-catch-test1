@@ -19,12 +19,16 @@
 <script src="../demo/asset/babylonjs.loaders.min.js"></script>
 <script src="../dist/tylin_mini_bim_show.js"></script>
 <script>
+    window.addEventListener(tylin.EventName.LOADING_SCREEN_FINISHED, () => {
+        console.log("页面家宅完成")
+    });
     let ilauncher = {
         assetUrl: "../demo/asset/desk/520.gltf",
         container: "renderCanvas"
     }
     let launcher = new tylin.Launcher(ilauncher);
     launcher.launch();
+
 </script>
 </body>
 </html>
